@@ -4,22 +4,33 @@
 import React from 'react'
 import UploadFile from './components/uploadFile'
 import DownloadFile from './components/donwloadFile'
-import ParticlesContainer from './components/particles'
+import ParticlesContainer from './components/particles/particles'
 import BatchUploadFiles from './components/BatchUploadFiles'
+import GetListFiles from './components/getListFiles'
 
 const IndexPage = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-700 via-blue-800 to-gray-900">
       <ParticlesContainer />
       <div className="w-1/2">
-        <h1 className="text-3xl font-bold mb-4">Upload de Arquivo</h1>
-        <UploadFile />
-        <h1 className="text-3xl font-bold mt-8 mb-4">Download de Arquivo</h1>
-        <DownloadFile />
-        <h1 className="text-3xl font-bold mt-8 mb-4">
-          Upload em Lote de Arquivos XML
-        </h1>
-        <BatchUploadFiles />
+        <div className="flex flex-col mb-8">
+          <div className="flex justify-between mb-4">
+            <div className="w-1/2 mr-4">
+              <h6 className="text-2xl font-bold">Upload de Arquivo</h6>
+              <UploadFile />
+            </div>
+            <div className="w-1/2 ml-4">
+              <h6 className="text-2xl font-bold">Download de Arquivo</h6>
+              <DownloadFile />
+            </div>
+          </div>
+          <div className="w-full">
+            <GetListFiles />
+          </div>
+        </div>
+        <div className="flex justify-end -mt-12">
+          <BatchUploadFiles />
+        </div>
       </div>
     </div>
   )

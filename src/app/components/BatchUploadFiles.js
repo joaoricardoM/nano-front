@@ -34,10 +34,21 @@ const BatchUploadFiles = () => {
   }
 
   return (
-    <div className="mb-4">
-      <input type="file" accept=".xml" multiple onChange={handleFileChange} />
+    <div className="mb-4 flex items-center">
+      <label htmlFor="upload-input" className="cursor-pointer mr-4">
+        <input
+          type="file"
+          accept=".xml"
+          multiple
+          onChange={handleFileChange}
+          className="hidden"
+        />
+        <div className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded inline-block">
+          Upload em lote
+        </div>
+      </label>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
         onClick={handleUpload}
       >
         Enviar

@@ -6,6 +6,7 @@ import axios from 'axios'
 const DownloadFile = () => {
   const [fileUri, setFileUri] = useState('')
   const [fileId, setFileId] = useState('')
+  const [showDownloadButton, setShowDownloadButton] = useState(true)
 
   const handleIdChange = (e) => {
     setFileId(e.target.value)
@@ -21,10 +22,16 @@ const DownloadFile = () => {
       )
       const url = window.URL.createObjectURL(new Blob([response.data]))
       setFileUri(url)
+      setShowDownloadButton(false)
     } catch (error) {
       console.error('Erro ao baixar arquivo:', error)
       alert('Erro ao baixar arquivo!')
     }
+  }
+
+  const handleReset = () => {
+    setFileUri(null)
+    setShowDownloadButton(true)
   }
 
   return (
@@ -38,17 +45,19 @@ const DownloadFile = () => {
         />
       </div>
       <div className="inline-block">
-        <button
-          onClick={handleDownload}
-          className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block"
-        >
-          Baixar
-        </button>
-        {fileUri && (
+        {showDownloadButton ? (
+          <button
+            onClick={handleDownload}
+            className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block"
+          >
+            Pesquisar
+          </button>
+        ) : (
           <a
             href={fileUri}
             download
             className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded inline-block"
+            onClick={handleReset}
           >
             Download
           </a>
