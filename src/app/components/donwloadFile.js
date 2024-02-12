@@ -35,7 +35,7 @@ const DownloadFile = () => {
   }
 
   return (
-    <div className="space-x-4">
+    <div className="space-x-4 ml-20">
       <div className="inline-block">
         <input
           type="text"

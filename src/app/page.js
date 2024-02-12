@@ -16,11 +16,11 @@ const IndexPage = () => {
         <div className="flex flex-col mb-8">
           <div className="flex justify-between mb-4">
             <div className="w-1/2 mr-4">
-              <h6 className="text-2xl font-bold">Upload de Arquivo</h6>
+              <h6 className="font-bold">Upload de arquivo</h6>
               <UploadFile />
             </div>
-            <div className="w-1/2 ml-4">
-              <h6 className="text-2xl font-bold">Download de Arquivo</h6>
+            <div className="w-1/2 ml-26">
+              <h6 className="text-1xl font-bold ml-20">Download de arquivo</h6>
               <DownloadFile />
             </div>
           </div>
