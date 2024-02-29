@@ -5,6 +5,7 @@ import Uppy from '@uppy/core'
 import '@uppy/core/dist/style.css'
 import '@uppy/dashboard/dist/style.css'
 import { Dashboard } from '@uppy/react'
+import { toast } from 'react-toastify'
 
 const BatchUploadFiles = () => {
   const [fileStatus, setFileStatus] = useState('')
@@ -28,9 +29,11 @@ const BatchUploadFiles = () => {
         }
       })
       setFileStatus('Arquivos enviados com sucesso!')
+      toast.succes('Arquivos enviados com sucesso!')
     } catch (error) {
       console.error('Erro ao enviar arquivos:', error)
       setFileStatus('Erro ao enviar arquivos!')
+      toast.error('Erro ao enviar arquivos!')
     }
   })
 

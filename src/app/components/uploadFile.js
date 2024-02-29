@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const UploadFile = () => {
   const [file, setFile] = useState(null)
@@ -11,12 +12,12 @@ const UploadFile = () => {
     if (selectedFile && selectedFile.type === 'text/xml') {
       setFile(selectedFile)
     } else {
-      alert('Por favor, selecione um arquivo XML.')
+      toast.info('Por favor, selecione um arquivo XML.')
     }
   }
   const handleUpload = async () => {
     if (!file) {
-      alert('Por favor, selecione um arquivo XML.')
+      toast.info('Por favor, selecione um arquivo XML.')
       return
     }
 
@@ -28,10 +29,10 @@ const UploadFile = () => {
           'Content-Type': 'multipart/form-data'
         }
       })
-      alert('Arquivo enviado com sucesso!')
+      toast.success('Arquivo enviado com sucesso!')
     } catch (error) {
       console.error('Erro ao enviar arquivo:', error)
-      alert('Arquivo já existe')
+      toast.info('Arquivo já existe')
     }
   }
 

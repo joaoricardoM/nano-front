@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const DownloadFile = () => {
   const [fileUri, setFileUri] = useState('')
@@ -25,7 +26,7 @@ const DownloadFile = () => {
       setShowDownloadButton(false)
     } catch (error) {
       console.error('Erro ao baixar arquivo:', error)
-      alert('Erro ao baixar arquivo!')
+      toast.error('Erro ao baixar arquivo!')
     }
   }
 
